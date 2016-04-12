@@ -1,10 +1,15 @@
 require 'sinatra'
 require 'sinatra/config_file'
 require 'whenever'
+require 'haml'
 
-config_file '/config/app_secret.yml'
 set :bind, '0.0.0.0'
 
+configure do 
+  config_file "config/app.yml"
+end  
+
 get '/' do
-  "Hello World #{params[:name]}".strip
+  @greeting = settings.username
+  haml :index
 end
