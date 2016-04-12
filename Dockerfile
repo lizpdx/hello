@@ -4,6 +4,10 @@ MAINTAINER Liz <liz.savage@jivesoftware.com>
 RUN apt-get update && \
 	apt-get install -y net-tools
 
+#install pre-reqs for curb gem
+RUN apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev
+RUN apt-get install ruby-dev
+
 # install gems
 ENV APP_HOME /app
 ENV HOME /root

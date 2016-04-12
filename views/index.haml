@@ -6,4 +6,6 @@
     %h1 Welcome
     %p
       Welcome to my Haml/Sinatra website
-%h3= @greeting
+      %h3= @greeting
+  - @tasks.each do |x|
+    = x[:key]
